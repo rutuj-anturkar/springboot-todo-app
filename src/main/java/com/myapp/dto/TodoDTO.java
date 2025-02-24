@@ -5,6 +5,8 @@ import jakarta.validation.constraints.Max;
 import jakarta.validation.constraints.NotBlank;
 import lombok.Getter;
 import lombok.Setter;
+import org.hibernate.validator.constraints.Length;
+
 import java.time.LocalDateTime;
 
 @Getter
@@ -12,7 +14,7 @@ import java.time.LocalDateTime;
 public class TodoDTO extends BaseDTO{
     @NotBlank
     private String taskName;
-    @Max(value = 50, message = "Description cannot exceed 50 characters")
+    @Length(min = 4,max = 50)
     private String description;
     private LocalDateTime completionDate;
     private Status status= Status.CREATED;
