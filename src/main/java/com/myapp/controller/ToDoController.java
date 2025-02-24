@@ -4,6 +4,7 @@ import com.myapp.dto.TodoDTO;
 import com.myapp.model.Status;
 import com.myapp.model.ToDo;
 import com.myapp.service.ToDoService;
+import jakarta.validation.Valid;
 import lombok.AllArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -16,7 +17,7 @@ public class ToDoController {
     private ToDoService toDoService;
 
     @PostMapping("/user/{userId}")
-    public ResponseEntity<?> addTask(@RequestBody TodoDTO task, @PathVariable Long userId) {
+    public ResponseEntity<?> addTask(@RequestBody @Valid TodoDTO task, @PathVariable Long userId) {
         return ResponseEntity.status(HttpStatus.CREATED).body(toDoService.createToDo(task, userId));
     }
 
