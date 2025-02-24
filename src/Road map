@@ -1,0 +1,8 @@
+- Basic crud with just one model - task
+
+- Add User model, define relationships
+- Bidirectional - user to tasks - one to many - User 1 <---->* Task
+ . AddUser
+ . AssignTaskToUser
+ . GetUserInformation
+ . GetTasksForUser - incorporate DTOS + model mapper
