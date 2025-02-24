@@ -32,8 +32,9 @@ public class ToDoServiceImpl implements ToDoService{
         //task.setUser(user);
         ToDo task = modelMapper.map(taskDTO,ToDo.class);
         user.addTask(task);
-        // no longer required - using cascadetype.all return modelMapper.map(toDoRepository.save(task),TodoDTO.class);
-        return taskDTO;
+        // no longer required - using cascadetype.all
+        return modelMapper.map(toDoRepository.save(task),TodoDTO.class);
+        //return taskDTO;
     }
 
     @Override
